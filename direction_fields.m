@@ -10,7 +10,7 @@ function direction_fields(minx, miny, maxx, maxy, step, scale, arrow)
   [t,p] = meshgrid(minx:step:maxx, miny:step:maxy);
   % Defines the differential equation
   dt = ones(sizeof(t));
-  dp = sqrt(1+sin(t)).*(1+p.^2);  % Change this every time! (for now)
+  dp = p.*(p-1).*(2-p);  % Change this every time! (for now)
   % Generates the angle of the differential equation
   angle = atan(dp);  % Octave defualts to radians
   xcomp = cos(angle);
